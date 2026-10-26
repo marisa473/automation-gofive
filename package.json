@@ -1,0 +1,19 @@
+{
+  "name": "pw-bdd-automation",
+  "version": "1.0.0",
+  "description": "Playwright + Gherkin (BDD) test automation scaffold",
+  "type": "commonjs",
+  "scripts": {
+    "bdd:gen": "bddgen",
+    "test": "npm run bdd:gen && playwright test",
+    "test:headed": "npm run bdd:gen && playwright test --headed",
+    "test:ui": "npm run bdd:gen && playwright test --ui",
+    "test:debug": "npm run bdd:gen && playwright test --debug",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "playwright-bdd": "^9.2.0"
+  }
+}

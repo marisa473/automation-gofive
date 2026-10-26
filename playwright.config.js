@@ -27,6 +27,14 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      grepInvert: /@sendsOtp/,
+    },
+    // scenario ที่ส่ง OTP ไปเบอร์ทดสอบเดียวกัน ถ้ารันพร้อมกัน OTP จะชนกันจนยืนยันไม่ผ่าน -> รันทีละตัว
+    {
+      name: 'chromium-otp',
+      use: { ...devices['Desktop Chrome'] },
+      grep: /@sendsOtp/,
+      workers: 1,
     },
     // เปิดใช้ browser อื่นได้ตามต้องการ
     // { name: 'firefox', use: { ...devices['Desktop Firefox'] } },

@@ -33,4 +33,22 @@ function genDummyIdCard() {
   return digits;
 }
 
-module.exports = { genDummyPhone, genDummyName, genDummyDob, genDummyEmail, genDummyIdCard };
+// หน้าลงทะเบียน empeo เช็คซ้ำระดับ "โดเมน" อีเมล (ไม่ใช่แค่ทั้ง address) — ต้องสุ่มโดเมนใหม่ทุกครั้ง
+function genUniqueDomainEmail(localPart = 'qa.auto') {
+  const stamp = `${Date.now()}${Math.floor(Math.random() * 1000)}`;
+  return `${localPart}@qa${stamp}.com`;
+}
+
+function genCompanyName(prefix = 'QA Automation') {
+  return `${prefix} ${Date.now()}`;
+}
+
+module.exports = {
+  genDummyPhone,
+  genDummyName,
+  genDummyDob,
+  genDummyEmail,
+  genDummyIdCard,
+  genUniqueDomainEmail,
+  genCompanyName,
+};
